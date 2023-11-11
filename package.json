@@ -1,0 +1,36 @@
+{
+  "name": "syngrisi-playwright-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "pretest": "esbuild --platform=node deps.ts --bundle --outfile=deps.bundle.js",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:debug": "npx playwright test --debug",
+    "test:chrome": "npx playwright test --project=chromium",
+    "codegen": "npx playwright codegen",
+    "report": "npx playwright show-report",
+    "install:local": "npm --prefix '../SYNGRISI-NEW/packages/playwright-sdk/' run build && npm rm @syngrisi/playwright-sdk && npm install -S ../SYNGRISI-NEW/packages/playwright-sdk/",
+    "install:global": "npm rm @syngrisi/playwright-sdk && npm install -S @syngrisi/playwright-sdk",
+    "syngrisi": "sy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@syngrisi/playwright-sdk": "^1.0.0",
+    "@types/node": "^20.8.9",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-import": "^2.29.0",
+    "hasha": "^5.2.2",
+    "ora": "^7.0.1",
+    "syngrisi": "^2.1.29-alpha.0",
+    "typedoc": "^0.25.3",
+    "typescript": "^5.2.2"
+  }
+}
