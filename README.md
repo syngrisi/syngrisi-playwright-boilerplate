@@ -50,9 +50,9 @@ After the tests finish, you need to go to the Syngrisi web interface and review 
 
 ## Test examples
 
-The [./tests/simple_examples.spec.ts](./tests/simple_examples.spec.ts) test suite demonstrates basic visual regression testing for element, viewport and full web page. 
+The [./tests/basic_example.spec.ts](./tests/basic_example.spec.ts) test suite demonstrates basic visual regression testing for element, viewport and full web page. 
 
-The [./tests/advanced_examples.spec.ts](./tests/advanced_examples.spec.ts) test suite performs more complex visual regression tests, including handling scenarios where the application may present different visual states, such as a broken graph or additional text. Tests may target different versions of an application by changing the URL query parameters to simulate visual changes or errors. 
+The [./tests/extended_example.spec.ts](./tests/extended_example.spec.ts) test suite performs more complex visual regression tests, including handling scenarios where the application may present different visual states, such as a broken graph or additional text. Tests may target different versions of an application by changing the URL query parameters to simulate visual changes or errors. 
 
 The `Dynamic content - Footer countdown timer` test demonstrates how to handle dynamic content using Playwright’s capabilities and Syngrisi’s `Ignore regions` feature.
 
@@ -85,7 +85,7 @@ Here's what happens when you use the Syngrisi fixture:
 3. Perform visual check: During test execution when used `expect(object).toMatchBaseline(options)` matcher is happening visual check: snapshot with metadata sent to Syngrisi server and handling on that side and report back the result which is verified by the `toMatchBaseline` matcher.
 4. Test Session End: After the test concludes, the session with the Syngrisi server is closed.
 
-To use the syngrisi.fixture.ts in your tests, you need to import the extended test and expect objects into your test files. For example, in `tests/simple_examples.spec.ts`, we demonstrate how to perform visual regression checks on both page viewport and individual elements:
+To use the syngrisi.fixture.ts in your tests, you need to import the extended test and expect objects into your test files. For example, in `tests/basic_example.spec.ts`, we demonstrate how to perform visual regression checks on both page viewport and individual elements:
 > 💡**Note:** don't forget to put `syngrisi` and `page` parameters to the test's callback, they are needed to activate fixture and execute the `toMatchBaseline` matcher.
 ```js
 import { test, expect } from '../fixtures/syngrisi.fixture'
