@@ -1,7 +1,7 @@
 {
   "name": "syngrisi-playwright-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Boilerplate Playwright Project with Syngrisi Integration",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -17,7 +17,10 @@
     "syngrisi": "sy"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Viktar Silakou",
+    "email": "1105714@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.39.0",

@@ -102,7 +102,7 @@ test.describe('Simple feature', () => {
 
 ## Configuration
 
-The syngrisi.config.ts file holds the configuration settings for the Syngrisi server, API keys, project information, and other relevant parameters that can be tailored to the needs of the test developer. The configuration includes:
+The `syngrisi.config.ts` file holds the configuration settings for the Syngrisi server, API keys, project information, and other relevant parameters that can be tailored to the needs of the test developer. The configuration includes:
 
 - baseUrl: The URL of the Syngrisi server.
 - apiKey: Your API key for authentication with the Syngrisi server.
