@@ -22,3 +22,4 @@ tests-examples/debug_example.spec.ts
 /.idea/vcs.xml
 /baselines/
 /application.log
+.pm2/*.log

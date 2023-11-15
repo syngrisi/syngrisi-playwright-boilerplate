@@ -20,7 +20,7 @@ npm install
 
 To start the Syngrisi server which provides the backend for visual regression testing, run:
 ```shell
-npx sy
+npm run sy:start
 ```
 Syngrisi comes with a pre-configured setup that works out of the box for demonstration purposes. However, you may need to adjust the configurations to match your test environment and requirements, for more details read the [Syngrisi Documentation](https://syngrisi.github.io/syngrisi/modules/syngrisi.html).
 
@@ -121,6 +121,26 @@ export const config = {
 }
 ```
 For detailed Syngrisi server configuration see the [Syngrisi Documentation](https://syngrisi.github.io/syngrisi/modules/syngrisi.html).
+
+## CLI commands
+
+### Tests
+
+`npm test` - start all tests
+`npm test:ui` - start all tests in UI mode
+`npm test:debug` - start all tests in debug mode
+`npm test:chrome` - start all tests in chromium browser
+`npm codegen` - start Playwright code generator
+`npm report` - start Playwright HTML report
+
+### Syngrisi
+
+`npm run sy:start` - start the Syngrisi server in the daemon mode
+`npm run sy:stop` - stop the Syngrisi server
+`npm run sy:status` - show the Syngrisi server status
+`npm run sy:log` - show the Syngrisi server logs
+
+`npm run sy` - start Syngrisi in CLI mode 
 
 ## License
 
