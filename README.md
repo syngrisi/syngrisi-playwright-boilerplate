@@ -26,22 +26,40 @@ Syngrisi comes with a pre-configured setup that works out of the box for demonst
 
 ### 2. Execute Tests
 
+To execute tests in all supported browsers:
+
 ```shell
-# start all tests in all browsers
 npm test
+```
 
-# To start tests exclusively in the Chromium browser
+To execute tests exclusively in the Chromium browser:
+
+```shell
 npm run test:chrome
+```
 
-# To run a test file on a specific path and browser (e.g., chromium, firefox, webkit, 'Mobile Chrome'),
-#  Example test files can be found in the `test` folder.
+To execute a specific test file in a designated browser (options include: chromium, firefox, webkit, or 'Mobile Chrome'), locate example test files in the test directory. Use the following command:
+
+```shell
 npx playwright test <path-to-test> --project=<browser-name>
+```
 
+For example, to run basic_example.spec.ts in Chromium: 
 
-npx playwright <path-to-test>  test --project=<browser-name>
+```shell
+npx playwright test tests/basic_example.spec.ts --project=chromium
+``` 
 
-# to generate test code interactively
+To generate test code interactively:
+
+```shell
 npm run codegen
+```
+
+To view generated HTML report:
+
+```shell
+npm run report 
 ```
 
 ### 3. Review snapshots
@@ -129,7 +147,7 @@ For detailed Syngrisi server configuration see the [Syngrisi Documentation](http
 `npm test` - start all tests
 `npm test:ui` - start all tests in UI mode
 `npm test:debug` - start all tests in debug mode
-`npm test:chrome` - start all tests in chromium browser
+`npm test:chrome` - start all tests in Chromium browser
 `npm codegen` - start Playwright code generator
 `npm report` - start Playwright HTML report
 
@@ -139,7 +157,6 @@ For detailed Syngrisi server configuration see the [Syngrisi Documentation](http
 `npm run sy:stop` - stop the Syngrisi server
 `npm run sy:status` - show the Syngrisi server status
 `npm run sy:log` - show the Syngrisi server logs
-
 `npm run sy` - start Syngrisi in CLI mode 
 
 ## License
