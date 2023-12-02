@@ -4,11 +4,16 @@
   "description": "Boilerplate Playwright Project with Syngrisi Integration",
   "main": "index.js",
   "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "sy:start": "pm2_home=./.pm2 pm2 flush syngrisi; pm2_home=./.pm2 pm2 start ./node_modules/.bin/sy --no-autorestart  --log ./.pm2/syngrisi.log --name syngrisi",
-    "sy:stop": "pm2_home=./.pm2 pm2 stop syngrisi",
-    "sy:status": "pm2_home=./.pm2 pm2 status syngrisi",
-    "sy:log": "pm2_home=./.pm2 pm2 log syngrisi",
+    "sy:start": "cross-env pm2_home=./.pm2  pm2 set pm2-logrotate:max_size 1M; cross-env pm2_home=./.pm2 pm2 start ./node_modules/@syngrisi//syngrisi/server.js --name sy-vrt --no-autorestart  --log ./.pm2/syngrisi.log",
+    "sy:stop": "cross-env pm2_home=./.pm2 pm2 stop sy-vrt",
+    "sy:status": "cross-env pm2_home=./.pm2 pm2 status sy-vrt",
+    "sy:show": "cross-env pm2_home=./.pm2 pm2 show sy-vrt",
+    "sy:jstatus": "cross-env pm2_home=./.pm2 pm2 jlist sy-vrt",
+    "sy:log": "cross-env pm2_home=./.pm2 pm2 log sy-vrt",
     "pretest": "esbuild --platform=node deps.ts --bundle --outfile=deps.bundle.js",
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
@@ -37,7 +42,7 @@
     "hasha": "^5.2.2",
     "ora": "^7.0.1",
     "pm2": "^5.3.0",
-    "syngrisi": "^2.1.33-alpha.0",
+    "@syngrisi/syngrisi": "^2.2.1",
     "typedoc": "^0.25.3",
     "typescript": "^5.2.2"
   }
