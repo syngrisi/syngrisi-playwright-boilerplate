@@ -2,6 +2,11 @@
 
 This boilerplate project provides a starting point for developing automation tests with visual regression capabilities using `@syngrisi/playwright-sdk` integrated with Playwright tests. It is designed to enable quick setup and easy adoption for test developers looking to implement visual regression testing in their workflow.
 
+## Requirements
+
+- Node.js >= 22.19.0
+- MongoDB >= 8 running locally — the Syngrisi server stores its data there (default URI `mongodb://127.0.0.1:27017/SyngrisiDb`)
+
 ## Installation
 
 1. Clone the boilerplate repository:
@@ -22,7 +27,7 @@ To start the Syngrisi server which provides the backend for visual regression te
 ```shell
 npm run sy:start
 ```
-Syngrisi comes with a pre-configured setup that works out of the box for demonstration purposes. However, you may need to adjust the configurations to match your test environment and requirements, for more details read the [Syngrisi Documentation](https://syngrisi.github.io/syngrisi/modules/syngrisi.html).
+Syngrisi comes with a pre-configured setup that works out of the box for demonstration purposes. The `sy:start` script launches the server with authentication disabled (`SYNGRISI_AUTH=false`), so the empty `apiKey` in `syngrisi.config.ts` works immediately. For a real deployment, enable authentication and set `apiKey` to a key obtained from your Syngrisi account settings. For more details read the [Syngrisi Documentation](https://syngrisi.github.io/syngrisi/modules/syngrisi.html).
 
 ### 2. Execute Tests
 

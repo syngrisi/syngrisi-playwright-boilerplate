@@ -22,7 +22,11 @@ import {
 } from '@syngrisi/playwright-sdk/dist/lib/pwHelpers';
 import { request } from '@playwright/test';
 
-import hasha from 'hasha';
+import { createHash } from 'node:crypto';
+
+// Syngrisi computes a snapshot's `imghash` as a SHA-512 hex digest server-side,
+// so we replicate that here (replaces the former `hasha` dependency).
+const imageHash = (buffer: Buffer): string => createHash('sha512').update(buffer).digest('hex');
 
 type Syngrisi = {
     syngrisi: PlaywrightDriver;
@@ -130,10 +134,10 @@ async function waitForBaselineWithRightSnapshotExists(
     }
     const snapshot = await getSnapshotById(page, lastBaseline.snapshotId);
 
-    const result = await waitUntil(async (attempt) => {
+    await waitUntil(async (attempt) => {
         imageBuffer = await getScreenshot(pwObj, options)
         const baselineSnapshot = await getSnapshotById(page, lastBaseline.snapshotId)
-        const actualHash = hasha(imageBuffer)
+        const actualHash = imageHash(imageBuffer)
         // console.log('baselineSnapshot :', baselineSnapshot.imghash)
         // console.log('actualHash       :', actualHash)
         if (baselineSnapshot.imghash === actualHash) {

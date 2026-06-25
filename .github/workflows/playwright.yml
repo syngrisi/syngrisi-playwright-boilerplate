@@ -8,18 +8,33 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:8
+        ports:
+          - 27017:27017
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 22
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Start Syngrisi server
+      run: npm run sy:start
+      env:
+        SYNGRISI_AUTH: 'false'
+        SYNGRISI_DB_URI: 'mongodb://127.0.0.1:27017/SyngrisiDb'
+    - name: Wait for Syngrisi server
+      run: npx wait-on http://localhost:3000 --timeout 60000
     - name: Run Playwright tests
       run: npx playwright test
-    - uses: actions/upload-artifact@v3
+    - name: Stop Syngrisi server
+      if: always()
+      run: npm run sy:stop
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
