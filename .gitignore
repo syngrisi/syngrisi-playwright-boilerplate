@@ -23,3 +23,7 @@ tests-examples/debug_example.spec.ts
 /baselines/
 /application.log
 .pm2/*.log
+.sy-data/
+logs/
+.pm2/
+.snapshots-images/
